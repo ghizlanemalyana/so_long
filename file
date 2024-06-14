@@ -1,0 +1,43 @@
+	while(game->map[0] != NULL)
+	{
+		while(game->map[0][x] != '\0')
+		{
+			if (game->map[0][x] != '1')
+				return 0;
+			x++;
+		}
+	}
+	y = num_line - 1;
+	while(game->map[y] != NULL)
+	{
+		while(game->map[y][x] != '\0')
+		{
+			if (game->map[y][x] == '1')
+				x++;
+			else
+				return 0;
+		}
+	}
+	y = 0;
+	while(game->map[y] != NULL)
+	{
+		while(game->map[y][0] != '\0')
+		{
+			if (game->map[y][0] == '1')
+				y++;
+			else
+				return 0;
+		}
+	}
+	y = 0;
+	x = num_char - 1;
+	while(game->map[y] != NULL)
+	{
+		while(game->map[y][x] != '\0')
+		{
+			if (game->map[y][x] == '1')
+				y++;
+			else
+				return 0;
+		}
+	}
