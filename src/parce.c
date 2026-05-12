@@ -6,15 +6,15 @@
 /*   By: gmalyana <gmalyana@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/06/12 11:31:03 by gmalyana          #+#    #+#             */
-/*   Updated: 2024/06/14 14:27:51 by gmalyana         ###   ########.fr       */
+/*   Updated: 2024/06/22 23:29:26 by gmalyana         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../includes/so_long.h"
- 
+
 static int	is_rectangular(t_game *game)
 {
-	int i;
+	int	i;
 
 	i = 0;
 	while (game->map[i] != NULL && game->map[i + 1] != NULL)
@@ -31,8 +31,8 @@ static int	is_rectangular(t_game *game)
 static int	ft_parce(t_game *game, int x, int y, int exit)
 {
 	if (ft_strchr("01PCE", game->map[y][x]) == NULL
-		|| game->map[y][x] == 'P' && game->x_player != 0
-		|| game->map[y][x] == 'E' && exit == 1)
+		|| (game->map[y][x] == 'P' && game->x_player != 0)
+		|| (game->map[y][x] == 'E' && exit == 1))
 		return (0);
 	if (x == 0 || y == 0 || y == game->height - 1 || x == game->width - 1)
 		if (game->map[y][x] != '1')
@@ -49,7 +49,7 @@ static int	ft_parce(t_game *game, int x, int y, int exit)
 	return (1);
 }
 
-int map_checker(t_game *game)
+int	map_checker(t_game *game)
 {
 	int	x;
 	int	y;
@@ -62,13 +62,13 @@ int map_checker(t_game *game)
 	while (game->map[y] != NULL)
 	{
 		x = 0;
-		while(game->map[y][x] != '\0')
+		while (game->map[y][x] != '\0')
 		{
 			if (ft_parce(game, x, y, exit) == 0)
 				return (0);
 			x++;
 		}
-		y++; 
+		y++;
 	}
 	if (game->collectibles == 0)
 		return (0);

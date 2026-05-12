@@ -6,7 +6,7 @@
 /*   By: gmalyana <gmalyana@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/06/11 20:30:41 by gmalyana          #+#    #+#             */
-/*   Updated: 2024/06/14 17:37:58 by gmalyana         ###   ########.fr       */
+/*   Updated: 2024/06/15 18:53:09 by gmalyana         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -30,7 +30,7 @@ static void	display_game(t_game *game)
 {
 	int		tmp;
 	int		x;
-	int 	y;
+	int		y;
 	void	*img;
 
 	y = 0;
@@ -40,7 +40,7 @@ static void	display_game(t_game *game)
 		while (game->map[y][x] != '\0')
 		{
 			img = mlx_xpm_file_to_image(game->mlx,
-				get_image_path(game->map[y][x]), &tmp, &tmp);
+					get_image_path(game->map[y][x]), &tmp, &tmp);
 			if (img == NULL)
 				ft_exit(game, strerror(errno));
 			mlx_put_image_to_window(game->mlx, game->mlx_win, img,
@@ -57,7 +57,7 @@ static int	move_player(t_game *game, int x, int y)
 	char	next;
 
 	next = game->map[game->y_player + y][game->x_player + x];
-	if (next == '1'|| (next == 'E' && game->collectibles > 0))
+	if (next == '1' || (next == 'E' && game->collectibles > 0))
 		return (0);
 	else
 	{
@@ -108,11 +108,12 @@ void	run(t_game *game)
 	game->mlx = mlx_init();
 	if (game->mlx == NULL)
 		ft_exit(game, strerror(errno));
-	game->mlx_win = mlx_new_window(game->mlx, game->width * IMG_WIDTH, game->height * IMG_HEIGHT, WIN_TITLE);
+	game->mlx_win = mlx_new_window(game->mlx, game->width * IMG_WIDTH,
+			game->height * IMG_HEIGHT, WIN_TITLE);
 	if (game->mlx_win == NULL)
 		ft_exit(game, strerror(errno));
 	mlx_key_hook(game->mlx_win, key_hook, game);
-	mlx_hook(game->mlx_win, 17, 0, quit, game); // To be edited
+	mlx_hook(game->mlx_win, 17, 0, quit, game);
 	display_game(game);
 	mlx_loop(game->mlx);
 }

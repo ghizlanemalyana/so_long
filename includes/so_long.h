@@ -6,16 +6,14 @@
 /*   By: gmalyana <gmalyana@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/06/08 17:58:02 by gmalyana          #+#    #+#             */
-/*   Updated: 2024/06/14 17:37:24 by gmalyana         ###   ########.fr       */
+/*   Updated: 2024/06/22 23:44:12 by gmalyana         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
-
 
 #ifndef SO_LONG_H
 # define SO_LONG_H
 
 # include "../lib/ft_printf/ft_printf.h"
-# include "../lib/get_next_line/get_next_line.h"
 # include "../lib/libft/libft.h"
 # include <mlx.h>
 # include <fcntl.h>
@@ -38,7 +36,8 @@
 # define BANANA_IMG "textures/BANANA.xpm"
 # define EXIT_IMG "textures/EXIT.xpm"
 
-typedef struct	s_game {
+typedef struct s_game
+{
 	void	*mlx;
 	void	*mlx_win;
 	char	**map;
@@ -46,15 +45,15 @@ typedef struct	s_game {
 	int		moves;
 	int		width;
 	int		height;
-	int 	x_player;
-	int 	y_player;
+	int		x_player;
+	int		y_player;
 }				t_game;
 
 /*		Game	*/
-void	run(t_game *game); 
+void	run(t_game *game);
 
 /*		Parce	*/
-int 	map_checker(t_game *game);
+int		map_checker(t_game *game);
 int		get_map(t_game *game, int fd);
 
 /*		Utils	*/

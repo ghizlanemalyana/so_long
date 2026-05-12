@@ -6,7 +6,7 @@
 /*   By: gmalyana <gmalyana@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/06/09 17:42:36 by gmalyana          #+#    #+#             */
-/*   Updated: 2024/06/14 16:35:56 by gmalyana         ###   ########.fr       */
+/*   Updated: 2024/06/22 23:43:25 by gmalyana         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -29,7 +29,7 @@ static void	flood_fill(char **map, int y, int x)
 static char	*read_map(int fd)
 {
 	char	*line;
-	char 	*map;
+	char	*map;
 
 	map = NULL;
 	while (1)
@@ -51,8 +51,8 @@ static char	*read_map(int fd)
 
 static int	is_map_valid(char **map)
 {
-	int i;
-	int j;
+	int		i;
+	int		j;
 
 	i = 0;
 	while (map[i] != NULL)
@@ -71,7 +71,7 @@ static int	is_map_valid(char **map)
 
 int	get_map(t_game *game, int fd)
 {
-	char *line;
+	char	*line;
 
 	line = read_map(fd);
 	if (line == NULL)

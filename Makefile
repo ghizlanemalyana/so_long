@@ -1,10 +1,10 @@
 NAME = so_long
 
-SRCS = $(shell find src -name "*.c") lib/get_next_line/get_next_line.c lib/get_next_line/get_next_line_utils.c
+SRCS = src/gameplay.c src/main.c src/map.c src/parce.c src/utils.c
 OBJS = $(SRCS:.c=.o)
 LIBRARY = -lmlx -framework OpenGL -framework AppKit
 INC = includes/so_long.h
-CFLAGS = #-Wall -Wextra -Werror 
+CFLAGS = -Wall -Wextra -Werror 
 LIBFT = lib/libft/libft.a
 FT_PRINTF = lib/ft_printf/libftprintf.a
 

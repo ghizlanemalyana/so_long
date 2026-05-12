@@ -6,13 +6,13 @@
 /*   By: gmalyana <gmalyana@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/06/14 12:55:10 by gmalyana          #+#    #+#             */
-/*   Updated: 2024/06/14 17:37:01 by gmalyana         ###   ########.fr       */
+/*   Updated: 2024/06/22 23:49:30 by gmalyana         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../includes/so_long.h"
 
-void ft_free(char **arr)
+void	ft_free(char **arr)
 {
 	int	i;
 
@@ -30,7 +30,10 @@ void	ft_exit(t_game *game, char *error)
 		ft_free(game->map);
 	}
 	if (error != NULL)
-		ft_printf("Error\n%s\n",error);
+	{
+		ft_printf("Error\n%s\n", error);
+		exit(1);
+	}
 	exit(0);
 }
 
